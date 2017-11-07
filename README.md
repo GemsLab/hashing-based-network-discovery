@@ -9,6 +9,7 @@ Contact:
   Tara Safavi, tsafavi@umich.edu
 
 Run:
-    type ```make```
+    Change directories to the ```discovery``` directory and type ```make```.
+    This will generate a sample graph from synthetic data using the pairwise correlation and window LSH methods.
 
 
