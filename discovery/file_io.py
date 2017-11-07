@@ -27,7 +27,7 @@ def data_as_np(filename, delimiter=',', skip_header=0):
 
 def data_as_pd(filename, keep_columns=None, drop_columns=None):
     """Return data as a pandas DataFrame"""
-    df = pd.read_csv(self.filename)
+    df = pd.read_csv(filename)
     if keep_columns is not None:
         df = df[keep_columns]
     if drop_columns is not None:
