@@ -21,18 +21,26 @@ class Dataset(object):
             Optionally, if all data live in a single file in the subdir
         """
         self.subdir = subdir
+        if self.subdir[-1] != '/':
+            self.subdir += '/'
         self.data_file = data_file
+
+    def load_data_file(self, delimiter=None):
+        """If data are in a single file, load it"""
+        if self.data_file is not None:
+            return np.loadtxt(self.subdir + self.data_file, delimiter=delimiter)
+        else:
+            raise ValueErorr('No data file to load')
+
+    def gen_data(self, delimiter=None):
+        """Generator of each data file in the specified directory"""
+        for fname in os.listdir(self.subdir):
+            yield np.loadtxt(self.subdir + fname, delimiter=delimiter)
 
     @property
     def filenames_with_paths(self):
         """For getting filenames with relative paths"""
-        if self.subdir[-1] != '/':
-            self.subdir += '/'
         return [self.subdir + f for f in sorted(os.listdir(self.subdir))]
-
-    def subject_id_from_filename(f):
-        """Subject id is before the file extension, separated by _"""
-        return f.split('_')[-1].split('.')[0]
 
 class UCRDataset(Dataset):
 
@@ -51,14 +59,29 @@ class UCRDataset(Dataset):
 
         return np.array(labels), np.array(data)
 
+class SyntheticDataset(Dataset):
+
+    def __init__(self, subdir='data/', data_file='synth.txt'):
+        super().__init__(subdir, data_file)
+
+    def gen_data(self, N, num_samples, write_to_file=True):
+        """Create some synthetic data, each sample of size N"""
+        A = np.random.rand(N, N)
+        cov = np.dot(A, A.T)
+        mean = np.zeros(N)
+        data = np.random.multivariate_normal(mean, cov, size=num_samples)
+        if write_to_file:
+            write_matrix_to_csv(self.subdir + self.data_file, data)
+        return data
+
 class FMRIDataset(Dataset):
 
     def __init__(self, subdir, data_file=None):
         super().__init__(subdir, data_file=data_file)
 
-    def gen_data(self):
-        """Returns a generator of subject_id, dataset pairs"""
-        raise NotImplementedError
+    def subject_id_from_filename(f):
+        """Subject id is before the file extension, separated by _"""
+        return f.split('_')[-1].split('.')[0]
 
 class COBREDataset(FMRIDataset):
 
@@ -115,21 +138,6 @@ class PennDataset(FMRIDataset):
         files = [f for f in self.filenames_with_paths if f[-3:] == 'mat']
         for mat in files:
             yield Dataset.subject_id_from_filename(mat), data_from_mat(mat)['roiTC'].T
-
-class SyntheticDataset(Dataset):
-
-    def __init__(self, subdir='data/', data_file='synth.txt'):
-        super().__init__(subdir, data_file)
-
-    def generate_data(self, N, num_samples, write_to_file=True):
-        """Create some synthetic data, each sample of size N"""
-        A = np.random.rand(N, N)
-        cov = np.dot(A, A.T)
-        mean = np.zeros(N)
-        data = np.random.multivariate_normal(mean, cov, size=num_samples)
-        if write_to_file:
-            write_matrix_to_csv(self.subdir + self.data_file, data)
-        return data
 
 class GraphDataset(Dataset):
 
@@ -201,6 +209,7 @@ class COBREFeatureDataset(FeatureDataset):
         return X, y
 
 def main():
+    """Testing code"""
     pass
 
 if __name__ == '__main__':
