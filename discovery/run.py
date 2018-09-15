@@ -83,7 +83,7 @@ def main():
     # You can replace this with real time series data
     # Use the functions in the file_io and dataset modules to read in your data
     dataset = SyntheticDataset()
-    data = dataset.generate_data(100, 1000, write_to_file=False)
+    data = dataset.gen_data(100, 1000, write_to_file=False)
 
     # Construct a graph using pairwise correlation, thresholding at .3
     # You can change the theta parameter to any number between 0 and 1
