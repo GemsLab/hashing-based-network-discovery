@@ -8,6 +8,10 @@ This repository hosts the code for our IEEE ICDM 2017 paper on inferring network
 
 *Link*: https://gemslab.github.io/papers/safavi-2017-scalable.pdf
 
+<p align="center">
+<img src="https://github.com/GemsLab/EMBER/blob/master/overview.jpg" width="700"  alt="Overview of hashing-based network discovery">
+</p>
+
 ```
 @INPROCEEDINGS{SafaviSK17,
   author={T. {Safavi} and C. {Sripada} and D. {Koutra}},
