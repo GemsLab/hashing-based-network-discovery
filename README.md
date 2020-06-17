@@ -3,10 +3,12 @@ Version 1.0.
 
 ## About
 
-This repository hosts the code for our IEEE ICDM 2017 paper on inferring networks from time series efficiently:
+This repository hosts the code for our IEEE ICDM 2017 paper and follow-up KAIS journal paper on inferring networks from time series efficiently:
 > Tara Safavi, Chandra Sripada, Danai Koutra. _Scalable Hashing-Based Network Discovery_. IEEE International Conference on Data Mining, 2017.
+> Tara Safavi, Chandra Sekhar Sripada, Danai Koutra: Fast network discovery on sequence data via time-aware hashing. Knowl. Inf. Syst. 61(2): 987-1017 (2019)
 
 *Link*: https://gemslab.github.io/papers/safavi-2017-scalable.pdf
+
         https://gemslab.github.io/papers/safavi-2018-fast.pdf (journal version)
 
 <p align="center">
