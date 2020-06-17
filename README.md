@@ -7,6 +7,7 @@ This repository hosts the code for our IEEE ICDM 2017 paper on inferring network
 > Tara Safavi, Chandra Sripada, Danai Koutra. _Scalable Hashing-Based Network Discovery_. IEEE International Conference on Data Mining, 2017.
 
 *Link*: https://gemslab.github.io/papers/safavi-2017-scalable.pdf
+        https://gemslab.github.io/papers/safavi-2018-fast.pdf (journal version)
 
 <p align="center">
 <img src="https://github.com/GemsLab/hashing-based-network-discovery/blob/master/overview.png" width="700"  alt="Overview of hashing-based network discovery">
@@ -14,11 +15,22 @@ This repository hosts the code for our IEEE ICDM 2017 paper on inferring network
 
 ```
 @INPROCEEDINGS{SafaviSK17,
-  author={T. {Safavi} and C. {Sripada} and D. {Koutra}},
-  title={Scalable Hashing-Based Network Discovery}, 
-  booktitle={IEEE International Conference on Data Mining (ICDM)}, 
-  year={2017},
-  pages={405-414},
+  author    = {T. {Safavi} and C. {Sripada} and D. {Koutra}},
+  title     = {Scalable Hashing-Based Network Discovery}, 
+  booktitle = {IEEE International Conference on Data Mining (ICDM)}, 
+  year      = {2017},
+  pages     = {405-414},
+  }
+```
+```
+@INPROCEEDINGS{SafaviSK19journal,
+  author    = {T. {Safavi} and C. {Sripada} and D. {Koutra}},
+  title     = {Fast network discovery on sequence data via time-aware hashing}, 
+  journal   = {Knowl. Inf. Syst.},
+  volume    = {61},
+  number    = {2},
+  pages     = {987--1017},
+  year      = {2019},
   }
 ```
 
