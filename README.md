@@ -9,6 +9,7 @@ This repository hosts the code for our IEEE ICDM 2017 paper and follow-up KAIS j
 > Tara Safavi, Chandra Sekhar Sripada, Danai Koutra: Fast network discovery on sequence data via time-aware hashing. Knowl. Inf. Syst. 61(2): 987-1017 (2019)
 
 *Link to the conference paper*: https://gemslab.github.io/papers/safavi-2017-scalable.pdf
+
 *Link to the journal paper*:  https://gemslab.github.io/papers/safavi-2018-fast.pdf
 
 <p align="center">
